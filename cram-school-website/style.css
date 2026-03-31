@@ -1,110 +1,331 @@
-/* --- 1. YOUR ORIGINAL SAFE FOUNDATION --- */
 body {
     margin: 0;
     font-family: "Noto Sans TC", sans-serif;
-    background-color: #fdfaf5; /* Cream background */
-    color: #2c3e50;
 }
 
+/* MOBILE FIRST FIX */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+    }
+}
+
+/* GLOBAL RESPONSIVE */
 img {
     max-width: 100%;
     height: auto;
 }
 
-/* --- 2. THE "LEGACY RED" THEME COLORS --- */
-:root {
-    --primary-red: #e3524b;
-    --soft-blue: #d6f0ff;
-    --soft-pink: #ffd6e0;
+h1, h2 {
+    font-size: clamp(22px, 5vw, 40px);
 }
 
-/* --- 3. HEADER (Clean & Professional) --- */
+/* NAV mobile fix */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 14px;
+    }
+}
+
+/* decor */
+.decor {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.decor1 {
+    width: 200px;
+    height: 200px;
+    background: #ffd6e0;
+    top: 100px;
+    left: -50px;
+}
+
+.decor2 {
+    width: 300px;
+    height: 300px;
+    background: #d6f0ff;
+    bottom: 0;
+    right: -100px;
+}
+
+.floating-shapes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.pink {
+    width: 200px;
+    height: 200px;
+    background: #ffd6e0;
+    top: 10%;
+    left: 5%;
+    animation: floatShape 10s infinite;
+}
+
+.blue {
+    width: 250px;
+    height: 250px;
+    background: #d6f0ff;
+    bottom: 10%;
+    right: 10%;
+    animation: floatShape 12s infinite;
+}
+
+.yellow {
+    width: 150px;
+    height: 150px;
+    background: #fff5cc;
+    top: 50%;
+    left: 70%;
+    animation: floatShape 8s infinite;
+}
+
+@keyframes floatShape {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+/* HEADER */
 header {
     background: white;
-    padding: 15px 5%;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.logo {
+    display: flex;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo img {
-    width: 60px; /* Fixed size so it doesn't explode */
+    width: 50px;
     margin-right: 10px;
 }
 
-/* --- 4. HERO (With your Background & Scallop) --- */
-.hero {
-    /* Replace 'your-bg.jpg' with your actual filename */
-    background: linear-gradient(rgba(227, 82, 75, 0.85), rgba(227, 82, 75, 0.85)), 
-                url('images/school-hall.jpg'); 
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
+/* button */
+.btn-primary {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
     color: white;
-    position: relative;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
 }
 
-/* The Scalloped Bottom Edge */
+.btn-secondary {
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #fddb92, #d1fdff);
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
 .hero::after {
     content: "";
     position: absolute;
-    bottom: -1px;
+    bottom: -50px;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 100px;
     background: white;
-    /* This creates the nice curve from your reference */
-    clip-path: ellipse(50% 100% at 50% 100%);
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
 }
 
 .hero h2 {
-    font-size: clamp(28px, 5vw, 48px);
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    font-size: 36px;
 }
 
-/* Fixed Mascot Size */
-.hero-image img {
-    width: 280px; 
-    max-width: 80%;
-    border-radius: 50%;
-    border: 8px solid rgba(255,255,255,0.3);
-    background: white;
-    padding: 10px;
-}
-
-/* --- 5. COURSE CARDS (Responsive & Uniform) --- */
-.course-list {
+.hero-content {
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
+    align-items: center;
     justify-content: center;
-    padding: 50px 20px;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.course-item {
-    width: 280px;
+.hero-image img {
+    width: 250px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.hero-image {
+    position: relative;
+}
+
+.speech-bubble {
+    position: absolute;
+    top: -20px;
+    right: -30px;
     background: white;
-    padding: 30px;
+    padding: 10px 15px;
     border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    border-bottom: 6px solid var(--primary-red);
-    transition: 0.3s ease;
+    font-size: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.course-item:hover {
-    transform: translateY(-10px);
-}
-
-/* --- 6. MOBILE FIXES --- */
+/* make it responsive */
 @media (max-width: 768px) {
     .hero-content {
         flex-direction: column;
     }
-    nav {
-        display: none; /* Simplifies mobile view */
-    }
+}
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* SAME SHAPE = CLEAN */
+.course-item {
+    width: 220px;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.course-item:hover {
+    transform: translateY(-8px);
+}
+
+/* PRESET COLORS (YOU CHOOSE FROM THESE ONLY) */
+.pink { background: #ffe0eb; }
+.blue { background: #e0f0ff; }
+.yellow { background: #fff5cc; }
+.green { background: #e0ffe5; }
+.purple { background: #f0e0ff; }
+
+/* COURSE CARDS */
+.course-card {
+    padding: 30px 20px;
+    border-radius: 30px;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+}
+
+/* COLORS (THIS is the theme feel) */
+.pink { background: #ffe0eb; }
+.blue { background: #e0f0ff; }
+.yellow { background: #fff5cc; }
+.purple { background: #f0e0ff; }
+.slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slide-track {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scroll 20s linear infinite;
+}
+
+.card {
+    width: 220px;
+    margin: 10px;
+    padding: 30px;
+    background: white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* album */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* video */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
 }
