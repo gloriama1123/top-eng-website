@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+
+  - name: "courses"
+    label: "課程管理"
+    folder: "content/courses"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "課程名稱", name: "title", widget: "string" }
+      - { label: "簡短介紹", name: "summary", widget: "string" }
+      - { label: "詳細內容", name: "body", widget: "text" }
+      - { label: "顏色", name: "color", widget: "select", options: ["pink","blue","yellow","green","purple"] }
+
+  - name: "albums"
+    label: "活動相簿"
+    folder: "content/albums"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "活動名稱", name: "title", widget: "string" }
+      - { label: "活動介紹", name: "description", widget: "text" }
+      - { label: "照片", name: "images", widget: "list", field: {label: Image, name: image, widget: image} }
+
+  - name: "site"
+    label: "網站設定"
+    files:
+      - file: "content/site.yml"
+        label: "基本內容"
+        fields:
+          - { label: "首頁標題", name: "hero_title", widget: "string" }
+          - { label: "吉祥物圖片", name: "mascot", widget: "image" }

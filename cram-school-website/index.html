@@ -9,6 +9,8 @@
 </head>
 
 <body>
+<div class="decor decor1"></div>
+<div class="decor decor2"></div>
 
 <div class="floating-shapes">
     <span class="shape pink"></span>
@@ -28,6 +30,7 @@
         <a href="#">學生成果</a>
         <a href="#">影音專區</a>
         <a href="#">聯絡我們</a>
+        <button class="btn-secondary">立即諮詢</button>
     </nav>
 </header>
 
@@ -36,7 +39,7 @@
         <div class="hero-text">
             <h2>讓孩子快樂學習，自信成長</h2>
             <p>拓英美語 × 專業教學 × 溫暖陪伴</p>
-            <button>立即預約試聽</button>
+            <button class="btn-primary">預約試聽</button>
         </div>
 
         <div class="hero-image">
@@ -50,38 +53,42 @@
     </div>
 </section>
 
-<section class="programs">
-    <h2>熱門課程</h2>
+<section class="courses">
+  <h2>我們的課程</h2>
+  <p class="course-intro">依照不同年齡與程度，提供最適合的學習規劃</p>
 
-    <div class="slider">
-        <div class="slide-track">
+  <div class="course-list">
 
-            <div class="card">幼兒美語</div>
-            <div class="card">國小英文</div>
-            <div class="card">國中英文</div>
-            <div class="card">高中英文</div>
-            <div class="card">數學輔導</div>
-            <div class="card">作業指導</div>
-
-            <!-- duplicate for smooth loop -->
-            <div class="card">幼兒美語</div>
-            <div class="card">國小英文</div>
-            <div class="card">國中英文</div>
-            <div class="card">高中英文</div>
-
-        </div>
+    <!-- COURSE ITEM -->
+    <div class="course-item pink">
+      <h3>幼兒美語</h3>
+      <p>建立語感與學習興趣</p>
     </div>
+
+    <div class="course-item blue">
+      <h3>國小英文</h3>
+      <p>扎實基礎 × 口說訓練</p>
+    </div>
+
+  </div>
 </section>
 
-<section class="gallery">
-    <h2>學生成長紀錄</h2>
+<section class="albums">
+  <h2>活動紀錄</h2>
 
-    <div class="gallery-grid">
-        <img src="images/photo1.jpg">
-        <img src="images/photo2.jpg">
-        <img src="images/photo3.jpg">
-        <img src="images/photo4.jpg">
-    </div>
+  <div class="album-grid">
+
+    <a href="album1.html" class="album-card">
+      <img src="images/photo1.jpg">
+      <h3>聖誕活動</h3>
+    </a>
+
+    <a href="album2.html" class="album-card">
+      <img src="images/photo1.jpg">
+      <h3>萬聖節派對</h3>
+    </a>
+
+  </div>
 </section>
 
 <section class="videos">
@@ -89,14 +96,14 @@
 
     <div class="video-grid">
 
-        <iframe src="https://www.youtube.com/watch?v=noAdLFF8RVE"></iframe>
+        <iframe src="https://www.youtube.com/embed/noAdLFF8RVE"></iframe>
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
 
     </div>
 </section>
 
 <section class="contact">
-    <h2>預約試聽</h2>
+    <button class="btn-primary">預約試聽</button>
     <form>
         <input type="text" placeholder="家長姓名">
         <input type="text" placeholder="聯絡電話">
@@ -112,6 +119,20 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
 AOS.init();
+</script>
+
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
 </script>
 
 </body>

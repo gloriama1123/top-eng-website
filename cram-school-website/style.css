@@ -34,6 +34,30 @@ h1, h2 {
     }
 }
 
+/* decor */
+.decor {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.decor1 {
+    width: 200px;
+    height: 200px;
+    background: #ffd6e0;
+    top: 100px;
+    left: -50px;
+}
+
+.decor2 {
+    width: 300px;
+    height: 300px;
+    background: #d6f0ff;
+    bottom: 0;
+    right: -100px;
+}
+
 .floating-shapes {
     position: fixed;
     width: 100%;
@@ -105,13 +129,47 @@ nav a {
     margin-right: 10px;
 }
 
+/* button */
+.btn-primary {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 /* HERO */
 .hero {
     background: linear-gradient(135deg, #fddb92, #d1fdff);
     padding: 120px 20px;
     text-align: center;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: white;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
 }
 
 .hero h2 {
@@ -159,21 +217,51 @@ nav a {
     }
 }
 
-/* CARDS */
-.programs {
-    background: #f9f9f9;
-    padding: 40px;
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* SAME SHAPE = CLEAN */
+.course-item {
+    width: 220px;
+    padding: 25px;
+    border-radius: 25px;
     text-align: center;
+    transition: 0.3s;
 }
 
-.card {
-    background: white;
-    margin: 15px auto;
-    padding: 20px;
-    max-width: 300px;
-    border-radius: 20px;
+.course-item:hover {
+    transform: translateY(-8px);
 }
 
+/* PRESET COLORS (YOU CHOOSE FROM THESE ONLY) */
+.pink { background: #ffe0eb; }
+.blue { background: #e0f0ff; }
+.yellow { background: #fff5cc; }
+.green { background: #e0ffe5; }
+.purple { background: #f0e0ff; }
+
+/* COURSE CARDS */
+.course-card {
+    padding: 30px 20px;
+    border-radius: 30px;
+    color: #333;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+}
+
+/* COLORS (THIS is the theme feel) */
+.pink { background: #ffe0eb; }
+.blue { background: #e0f0ff; }
+.yellow { background: #fff5cc; }
+.purple { background: #f0e0ff; }
 .slider {
     overflow: hidden;
     width: 100%;
@@ -201,32 +289,17 @@ nav a {
     100% { transform: translateX(-50%); }
 }
 
-/* gallery */
-.gallery-grid {
+/* album */
+.album-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
-    padding: 20px;
 }
 
-.gallery-grid img {
+.album-card img {
     width: 100%;
-    aspect-ratio: 1 / 1;   /* 🔥 THIS FIXES EVERYTHING */
-    object-fit: cover;     /* crops nicely */
-    border-radius: 15px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-    padding: 20px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    aspect-ratio: 1 / 1;   /* 🔥 THIS FIXES EVERYTHING */
-    object-fit: cover;     /* crops nicely */
+    aspect-ratio: 1/1;
+    object-fit: cover;
     border-radius: 15px;
 }
 
