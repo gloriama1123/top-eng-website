@@ -1,331 +1,58 @@
+/* 1. THE "LEGACY" THEME LOOK */
+:root {
+    --primary-red: #e3524b; /* The classic school red from your reference */
+    --soft-yellow: #fff5cc;
+    --navy-text: #2c3e50;
+    --white: #ffffff;
+}
+
 body {
-    margin: 0;
-    font-family: "Noto Sans TC", sans-serif;
+    background: #fdfaf5; /* Cream background like you wanted */
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
-/* MOBILE FIRST FIX */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-    }
-}
-
-/* GLOBAL RESPONSIVE */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-h1, h2 {
-    font-size: clamp(22px, 5vw, 40px);
-}
-
-/* NAV mobile fix */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        margin: 5px;
-        font-size: 14px;
-    }
-}
-
-/* decor */
-.decor {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.4;
-    z-index: -1;
-}
-
-.decor1 {
-    width: 200px;
-    height: 200px;
-    background: #ffd6e0;
-    top: 100px;
-    left: -50px;
-}
-
-.decor2 {
-    width: 300px;
-    height: 300px;
-    background: #d6f0ff;
-    bottom: 0;
-    right: -100px;
-}
-
-.floating-shapes {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.shape {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.3;
-}
-
-.pink {
-    width: 200px;
-    height: 200px;
-    background: #ffd6e0;
-    top: 10%;
-    left: 5%;
-    animation: floatShape 10s infinite;
-}
-
-.blue {
-    width: 250px;
-    height: 250px;
-    background: #d6f0ff;
-    bottom: 10%;
-    right: 10%;
-    animation: floatShape 12s infinite;
-}
-
-.yellow {
-    width: 150px;
-    height: 150px;
-    background: #fff5cc;
-    top: 50%;
-    left: 70%;
-    animation: floatShape 8s infinite;
-}
-
-@keyframes floatShape {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
-    100% { transform: translateY(0); }
-}
-
-/* HEADER */
-header {
-    background: white;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #333;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 50px;
-    margin-right: 10px;
-}
-
-/* button */
-.btn-primary {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.btn-secondary {
-    background: linear-gradient(45deg, #a1c4fd, #c2e9fb);
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-/* HERO */
+/* 2. SCALLOPED BORDER (The "Kindergarten" vibe) */
 .hero {
-    background: linear-gradient(135deg, #fddb92, #d1fdff);
-    padding: 120px 20px;
-    text-align: center;
+    background: var(--primary-red);
+    color: white;
+    padding: 100px 20px;
     position: relative;
-    overflow: hidden;
+    text-align: center;
 }
 
+/* This creates that wavy/curved bottom look */
 .hero::after {
     content: "";
     position: absolute;
-    bottom: -50px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 50px;
     background: white;
-    border-top-left-radius: 50% 100%;
-    border-top-right-radius: 50% 100%;
+    clip-path: ellipse(50% 100% at 50% 100%);
 }
 
-.hero h2 {
-    font-size: 36px;
-}
-
-.hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
+/* 3. CIRCULAR MASCOT (Like your Reading Unicorn) */
 .hero-image img {
-    width: 250px;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
-}
-
-.hero-image {
-    position: relative;
-}
-
-.speech-bubble {
-    position: absolute;
-    top: -20px;
-    right: -30px;
+    width: 280px;
+    border: 10px solid rgba(255,255,255,0.3);
+    border-radius: 50%; /* Makes it a circle */
     background: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* make it responsive */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-    }
-}
-
-.course-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* SAME SHAPE = CLEAN */
+/* 4. COURSE CARDS (Clean & Professional) */
 .course-item {
-    width: 220px;
-    padding: 25px;
-    border-radius: 25px;
-    text-align: center;
+    background: white;
+    border-bottom: 5px solid var(--primary-red); /* Accent line */
+    border-radius: 15px;
+    padding: 30px;
     transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .course-item:hover {
-    transform: translateY(-8px);
-}
-
-/* PRESET COLORS (YOU CHOOSE FROM THESE ONLY) */
-.pink { background: #ffe0eb; }
-.blue { background: #e0f0ff; }
-.yellow { background: #fff5cc; }
-.green { background: #e0ffe5; }
-.purple { background: #f0e0ff; }
-
-/* COURSE CARDS */
-.course-card {
-    padding: 30px 20px;
-    border-radius: 30px;
-    color: #333;
-    font-weight: bold;
-    transition: transform 0.3s ease;
-}
-
-.course-card:hover {
-    transform: translateY(-8px);
-}
-
-/* COLORS (THIS is the theme feel) */
-.pink { background: #ffe0eb; }
-.blue { background: #e0f0ff; }
-.yellow { background: #fff5cc; }
-.purple { background: #f0e0ff; }
-.slider {
-    overflow: hidden;
-    width: 100%;
-}
-
-.slide-track {
-    display: flex;
-    width: calc(250px * 10);
-    animation: scroll 20s linear infinite;
-}
-
-.card {
-    width: 220px;
-    margin: 10px;
-    padding: 30px;
-    background: white;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    flex-shrink: 0;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* album */
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.album-card img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-/* video */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-iframe {
-    width: 100%;
-    height: 200px;
-    border-radius: 15px;
-}
-
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: auto;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
